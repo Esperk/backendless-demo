@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Geo Service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/geo.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://twitter.github.com/bootstrap/assets/js/html5shiv.js"></script>
+    <![endif]-->
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+        var script=document.createElement('script'),
+                url = ((window.location.protocol == 'file:') ? "http:" : window.location.protocol) + "//api.backendless.com/sdk/js/latest/backendless.min.js";
+        script.setAttribute('src',url);
+        document.head.appendChild(script);
+    </script>
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <h4>Geo Browser Sample</h4>
+        </div>
+    </div>
+</div>
+<div id="myCarousel" class="carousel">
+    <div class="carousel-inner">
+        <div class="item category" id="categoryRestaurants">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="container">
+                        <h4>Geopoints</h4>
+                        <div class="inner">
+                            <div class="points categoryRestaurantsPoints"></div>
+                            <button class="filter categoryRestaurantsFilter">Filter</button>
+                            <div class="map">
+                                <div id="categoryRestaurantsMap"></div>
+                            </div>
+                            <button class="back mapBack">Back to Categories</button>
+                        </div>
+                        <div class="inner codeBoundary">
+                            <h5>Source code for the current search query</h5>
+                            <div class="edWrapper edCode">
+                                <div id="editor3" class="editor"></div>
+                                <pre class="next">function GMapBoundaries(){
+var geoQuery ={
+searchRectangle: [<span class="rect"></span>],
+categories: ["<span class="cat"></span>"],
+<span class="cond"></span>
+}
+return Backendless.Geo.find( geoQuery );
+}</pre>
+                            </div>
+                        </div>
+                        <div class="inner codeRadius">
+                            <h5>Source code for the current search query</h5>
+                            <div class="edWrapper edCode">
+                                <div id="editor4" class="editor"></div>
+                                <pre class="next">function GMapRadius(){
+var geoQuery ={
+latitude: <span class="latitude"></span>,
+longitude:<span class="longitude"></span>,
+radius:<span class="radius"></span>,
+units:<span class="units"></span>,
+categories: ["<span class="cat"></span>"]
+<span class="cond"></span>
+}
+return Backendless.Geo.find( geoQuery );
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item active index">
+            <div class="wrapper">
+                <div class="container">
+                        <div class="container">
+                            <h4>Select a category</h4>
+                            <div class="inner">
+                                <div class="tables"><div style="text-align:center;font-size:20px;padding:20px;">Loading...</div></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="item pointsContainer" id="categoryRestaurantsPoints">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="container">
+                        <h4>Geopoints</h4>
+                        <div class="inner">
+                            <div class="marker back categoryRestaurantsPoints"></div>
+                            <button class="goToFilter categoryRestaurantsFilter">Filter</button>
+                            <button class="removePoints">Remove Selected Points</button>
+                            <div class="tables"></div>
+                                <div class="paginator">
+                                    <div class="prevArr"></div>
+                                    <div class="showed"><span class="spoints">1</span>-<span class="epoints">100</span> of <span id="size">100</span></div>
+                                    <div class="nextArr"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item filterContainer" id="categoryRestaurantsFilter">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="container">
+                        <h4>Filter</h4>
+                        <div class="inner">
+                            <h5>Query:</h5>
+                            <div class="edWrapper">
+                                <div id="editor" class="editor"></div>
+                            </div>
+                            <h5>Search in:</h5>
+                            <div class="search">
+                                <div style="padding:10px">
+                                    <input type="radio" name="search" value="boundaries" checked="checked" id="boundaries" /><label for="boundaries">Map Boundaries</label>
+                                </div>
+                                <div style="padding:10px">
+                                    <input type="radio" name="search" value="radies" id="radius"/>
+                                    <label style="top:-13px" for="radius"><span style="float:left;position:relative;top:10px">Radius</span>
+                                        <input type="text" value="100"/>
+                                        <select>
+                                            <option value="MILES">MI</option>
+                                            <option value="KILOMETERS">KM</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="apply">Apply Filter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="js/zepto.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=drawing&sensor=false"></script>
+    <script src="js/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editors = {
+            editor : ace.edit("editor")
+        };
+
+    </script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/NotS_demo-geo.js"></script>
+</div>
+</body>
+</html>

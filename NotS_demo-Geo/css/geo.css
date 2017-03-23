@@ -1,0 +1,389 @@
+
+.carousel .container {
+    position: relative;
+    z-index: 9;
+}
+
+.prevArr{
+    display:none;
+}
+
+/* Data CSS */
+body {
+    background: rgb(50, 56, 63);
+    font: Arial, Helvetica, sans-serif;
+}
+
+h4{
+    color:#fff;
+    text-align:center;
+}
+
+.index{
+    position:relative;
+}
+
+.inner{
+    background:#fff;
+    width:90%;
+    margin:0 5%;
+    -webkit-box-shadow: 0 0 12px #E7E7E7;
+    -moz-box-shadow: 0 0 12px #E7E7E7;
+    box-shadow: 0 0 12px #E7E7E7;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    font-size:14pt;
+    position: relative;
+    z-index:2;
+    overflow:hidden;
+}
+.codeBoundary, .codeRadius{
+    margin:10px 5%;
+
+}
+.codeRadius{
+    display:none;
+}
+.next{
+    display:none;
+}
+.edCode{
+    height:200px!important;
+}
+.edCode .editor{
+    width:100%!important;
+}
+.inner .block{
+    padding:10px;
+    border-bottom:1px solid rgb(50, 56, 63);
+    background:url(arrow.png) no-repeat 99% 50%;
+    text-align:center;
+}
+.inner .block:hover{
+    color:#fff;
+    cursor:pointer;
+    background:#666 url(arrow_h.png) no-repeat 99% 50%;
+}
+.inner .noPoints{
+    padding:10px;
+    border-bottom:1px solid rgb(50, 56, 63);
+    background:url(arrow.png) no-repeat 99% 50%;
+    text-align:center;
+    opacity:0.5;
+}
+
+.inner .noPoints:hover{
+    color:#fff;
+    cursor:pointer;
+    background:#666 url(arrow_h.png) no-repeat 99% 50%;
+}
+.pointsContainer .inner .block{
+    padding:10px;
+    border-bottom:1px solid rgb(50, 56, 63);
+    background:#fff;
+    text-align:left;
+}
+.pointsContainer .inner .block:hover{
+    color:green;
+    cursor:pointer;
+}
+
+.removed:hover{
+    color:#ff0000!important;
+}
+.pointsContainer .inner .block:nth-child(even){
+    background:#eeeeee;
+}
+.inner .block:last-child{
+    padding:10px;
+    border-bottom:0px solid rgb(50, 56, 63);
+}
+.removePoints{
+    width:200px;
+}
+.pointsContainer .tables{
+    border-top: 1px solid #999;
+}
+.gm-style img {
+    max-width: 9999px;
+}
+
+.paginator{
+    height: 50px;
+    width: 100%;
+    padding: 20px 0 0 45%;
+    border-top: 1px solid #666;
+}
+.prevArr{
+    background:url(left.png) no-repeat;
+    width:40px;
+    height:40px;
+    float:left;
+    opacity:0.5;
+}
+.showed{
+    float: left;
+    padding: 5px 15px 5px 10px;
+}
+.paginator .nextArr{
+    background:url(right.png) no-repeat;
+    width:40px;
+    height:40px;
+    float:left;
+    display:block;
+    opacity:0.5;
+}
+.prevArr:hover, .paginator .nextArr:hover{
+    opacity:1;
+    cursor:pointer;
+}
+.inner .textarea {
+    text-align: left;
+    font-size: 100%;
+    width: 90%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px auto;
+    line-height: 20px;
+    background: #eee;
+    color: darkred;
+    text-decoration: underline;
+}
+#editor, #editor2, #editor3, #editor4 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height:auto;
+    min-height:110px;
+    width:80%;
+}
+
+.back{
+    margin:20px;
+}
+.mapBack{
+    position: absolute;
+    left: 350px;
+    top: -15px;
+    z-index: 3;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.mapBack:hover{
+    opacity:1;
+}
+input[type=text]{
+    width:60px!important;
+    height:18px;
+}
+
+.edit{
+    right: 0;
+    position: absolute;
+}
+
+.edWrapper{
+    height: 150px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.ace_editor{
+    font-size:16px!important;
+}
+.popup {
+    max-width: 300px;
+    padding: 10px 15px;
+    color: rgb(220, 220, 220);
+    opacity: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    position: fixed;
+    top: 30px;
+    right: -120px;
+    z-index:10000;
+}
+.error {
+    background-color: rgba(255, 27, 0, 0.8);
+    color:#fff!important;
+}
+.warn {
+    background-color: rgba(255, 102, 0, 0.8);
+    color:#fff!important;
+}
+.successPopup{
+    background-color: #00CC66!important;
+    color:#fff!important;
+}
+.center{
+    text-align:center;
+}
+button{
+    margin:5px 15px;
+    padding:5px;
+    text-align:center;
+    width:15%;
+    background: #71b239;
+    color:#fff;
+    background-image: -webkit-linear-gradient(top, #7cbe3a, #5a9b39);
+    background-image: -moz-linear-gradient(top, #7cbe3a, #5a9b39);
+    background-image: -ms-linear-gradient(top, #7cbe3a, #5a9b39);
+    background-image: -o-linear-gradient(top, #7cbe3a, #5a9b39);
+    background-image: linear-gradient(top, #7cbe3a, #5a9b39);
+    border-top: 1px solid #afafaf;
+    border-right: 1px solid #919191;
+    border-bottom: 1px solid #919191;
+    border-left: 1px solid #afafaf;
+    text-decoration:none;
+    min-width:150px;
+}
+button:hover{
+    background: #71b239;
+    background-image: -webkit-linear-gradient(top, #5a9b39, #71b239);
+    background-image: -moz-linear-gradient(top, #5a9b39, #71b239);
+    background-image: -ms-linear-gradient(top, #5a9b39, #71b239);
+    background-image: -o-linear-gradient(top, #5a9b39, #71b239);
+    background-image: linear-gradient(top, #5a9b39, #71b239);
+    text-decoration:none;
+}
+
+#sendByMail input{
+    border-radius:0px!important;
+    border:1px solid #666;
+}
+
+.attr{
+    background:#fff!important;
+}
+.attr:first-child{
+    border-radius:5px 5px 0 0;
+}
+.attr:last-child{
+    border-radius:0px 0px 5px 5px;
+}
+.attr:nth-child(even){
+    background:#ccc!important;
+}
+.attr:hover{
+    background:#666!important;
+}
+.switcher{
+    width: 15%;
+    /*background: url(sw.png) no-repeat 0 0;*/
+    height: 30px;
+    border-radius: 10px;
+    float: right;
+}
+
+input[type=radio]{
+    margin:0 5px;
+}
+h5{font-size:20px;padding:1%}
+
+/*Google maps*/
+
+.map{
+    width:100%;
+    overflow:hidden;
+    border-radius:10px;
+}
+.map > div{
+    height: 400px;
+    margin: 0px;
+    padding: 0px;
+    border-radius:10px;
+}
+
+
+.points{
+    height:40px;
+    width:40px;
+    position:absolute;
+    right:10px;
+    top:20px;
+    background:url(menu.png) 50% 50%;
+    z-index:2;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.marker{
+    height:40px;
+    width:40px;
+    position:absolute;
+    right:10px;
+    background:url(marker.png) 50% 50% no-repeat;
+    z-index:2;
+    cursor: pointer;
+    opacity: 0.5;
+}
+div.back{
+    height:40px;
+    width:40px;
+    float:right;
+    margin:0px;
+    background:url(marker.png) 50% 50% no-repeat;
+}
+.points:hover,.marker:hover{
+    opacity:1;
+}
+select{
+    position: relative;
+    top: 4px;
+    left: 5px;
+    width: 60px;
+}
+.filter{
+    position:absolute;
+    left:70px;
+    z-index:2;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.removePoints{
+    position:absolute;
+    left:270px;
+    z-index:2;
+    cursor: pointer;
+    opacity: 0.8;
+    width:200px;
+}
+input{
+    float:left;
+    margin:5px;
+}
+label{
+    position: relative;
+    top: -3px;
+    left: 5px;
+}
+.filter:hover,.removePoints:hover{
+    opacity:1;
+}
+.gm-style-iw div{
+    overflow:hidden!important;
+}
+.gm-style-iw + div{
+    background: none;
+    width: 50px!important;
+    height: 12px!important;
+    right: -26px!important;
+}
+.cont{
+    margin:5px;
+}
+.inner .noPointsBlock{
+    padding:10px;
+    border-bottom:1px solid rgb(50, 56, 63);
+    background:url(arrow.png) no-repeat 99% 50%;
+    text-align:center;
+}
+
+.inner .noPointsBlock:hover{
+    color:#fff;
+    cursor:pointer;
+    background:#666 url(arrow_h.png) no-repeat 99% 50%;
+}
