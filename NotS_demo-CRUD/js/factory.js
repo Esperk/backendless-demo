@@ -10,6 +10,7 @@ $rootScope.tablesList = {
 	Demos : function(obj) {
 		obj = obj || new $rootScope.Classes.Demos();
 		obj.datum = new Date();
+		obj.naam = String(Math.abs(Math.floor(Math.random()*Math.pow(10, 5) - 1)));
 
 		return obj;
 	},
