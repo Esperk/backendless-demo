@@ -1,0 +1,7 @@
+1. settings
+2. users
+3. data & permissions
+4. bussiness logic
+5. registreren/inloggen
+6. keys
+7. CRUD
