@@ -1,0 +1,183 @@
+
+.carousel .container {
+    position: relative;
+    z-index: 9;
+}
+
+/* Data CSS */
+body {
+    background: rgb(50, 56, 63);
+    font: Arial, Helvetica, sans-serif;
+}
+
+h4{
+    color:#fff;
+    text-align:center;
+}
+h3{
+    text-align:center;
+}
+pre{display:none}
+.inner{
+    background:#fff;
+    width:90%;
+    margin:0 5%;
+    -webkit-box-shadow: 0 0 12px #E7E7E7;
+    -moz-box-shadow: 0 0 12px #E7E7E7;
+    box-shadow: 0 0 12px #E7E7E7;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    font-size:14pt;
+}
+.inner .block{
+    padding:10px;
+    border-bottom:1px solid rgb(50, 56, 63);
+    background:url(arrow.png) no-repeat 99% 50%;
+    text-align:center;
+}
+.inner .block:hover{
+    color:#fff;
+    cursor:pointer;
+    background:#666 url(arrow_h.png) no-repeat 99% 50%;
+}
+.inner .block:last-child{
+    padding:10px;
+    border-bottom:0px solid rgb(50, 56, 63);
+}
+
+.inner .textarea {
+    text-align: left;
+    font-size: 100%;
+    width: 90%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px auto;
+    line-height: 20px;
+    background: #eee;
+    color: darkred;
+    text-decoration: underline;
+}
+.ace_editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height:auto;
+    min-height:110px;
+    width:100%;
+}
+
+.edWrapper{
+    height: 150px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.ace_editor{
+    font-size:16px!important;
+}
+.popup {
+    max-width: 300px;
+    padding: 10px 15px;
+    color: rgb(220, 220, 220);
+    opacity: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    position: fixed;
+    top: 30px;
+    z-index:100;
+    right: -120px;
+}
+.error {
+    background-color: rgba(255, 27, 0, 0.5);
+}
+.successPopup{
+    background-color: #00CC66!important;
+    color:#fff!important;
+}
+.center{
+    text-align:center;
+}
+button{
+    margin:5px 15px;
+    padding:5px;
+    text-align:center;
+    width:15%;
+    background: #71b239;
+    color:#fff;
+    background-image: -webkit-linear-gradient(top, #7cbe3a, #5a9b39);
+    background-image: -moz-linear-gradient(top, #7cbe3a, #5a9b39);
+    background-image: -ms-linear-gradient(top, #7cbe3a, #5a9b39);
+    background-image: -o-linear-gradient(top, #7cbe3a, #5a9b39);
+    background-image: linear-gradient(top, #7cbe3a, #5a9b39);
+    border-top: 1px solid #afafaf;
+    border-right: 1px solid #919191;
+    border-bottom: 1px solid #919191;
+    border-left: 1px solid #afafaf;
+    text-decoration:none;
+    min-width:150px;
+}
+button:hover{
+    background: #71b239;
+    background-image: -webkit-linear-gradient(top, #5a9b39, #71b239);
+    background-image: -moz-linear-gradient(top, #5a9b39, #71b239);
+    background-image: -ms-linear-gradient(top, #5a9b39, #71b239);
+    background-image: -o-linear-gradient(top, #5a9b39, #71b239);
+    background-image: linear-gradient(top, #5a9b39, #71b239);
+    text-decoration:none;
+}
+
+#sendByMail input{
+    border-radius:0px!important;
+    border:1px solid #666;
+}
+
+#findrelPhoneBookFindSample{display:none}
+
+.attr{
+    background:#fff;
+    padding:10px;
+    border-bottom:1px solid rgb(50, 56, 63);
+    text-align:center;
+}
+.attr:first-child{
+    border-radius:5px 5px 0 0;
+}
+.attr .attr{border:0;background: none!important;}
+.attr:last-child{
+    border-radius:0px 0px 5px 5px;
+}
+.attr:nth-child(even){
+    background:#ccc;
+}
+.attr:hover{
+    background:#666;
+    color:#fff;
+    cursor:pointer;
+}
+.switcher{
+    width: 15%;
+    /*background: url(sw.png) no-repeat 0 0;*/
+    height: 30px;
+    border-radius: 10px;
+    float: right;
+}
+.switcherH{
+    background: url(sw.png) no-repeat 0 -60px!important;
+}
+input[type=radio]{
+    margin:0 5px;
+}
+h5{font-size:20px;padding:1%}
+
+.checkedProp{
+    background:#488214!important;
+    color:#fff;
+}
+
+.complexFind pre, #attrContainerSort, #soloAttrContainer, #uniqueAttrContainer, #complexFindCheck, #sendByMail .center, #uniqueAttrContainer .center{
+    display:none;
+}

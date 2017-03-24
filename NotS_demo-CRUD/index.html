@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+                            <html lang="en">
+                                <head>
+                                    <meta charset="utf-8">
+                                    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                                    <title>NotS_demo-CRUD</title>
+                                    <link rel="stylesheet" href="css/bootstrap.css">
+                                    <link rel="stylesheet" href="css/jquery-ui.css">
+                                    <link rel="stylesheet" href="css/data.css">
+                                    <script src="js/jquery.js"></script>
+                                    <script type="text/javascript">var $rootScope = window;</script>
+                                    <script src="https://api.backendless.com/sdk/js/latest/backendless.min.js"></script>
+                                </head>
+                                <body>
+                                    <div class="navbar navbar-inverse navbar-static-top">
+                                        <div class="navbar-inner">
+                                            <div class="container">
+                                                <h4>Create, Retrieve, Update, Delete Data Objects</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="myCarousel" class="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="item active index">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Tables</h4>
+
+                                                            <div class="inner">
+                                                                <div class="tables">
+                                                                
+                                                                    <div class="block" id="Demos" onclick="goToOperationMenu('Demos')">Demos</div>
+                                                                
+                                                                    <div class="block" id="ChatUser" onclick="goToOperationMenu('ChatUser')">ChatUser</div>
+                                                                
+                                                                    <div class="block" id="FileItem" onclick="goToOperationMenu('FileItem')">FileItem</div>
+                                                                
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item operations">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Operations</h4>
+
+                                                            <div class="inner">
+                                                                <div class="tables">
+                                                                    <div class="block" onclick="cudOperation('Create')">Create</div>
+                                                                    <div class="block" onclick="showHide('.retrieve', '.operations')">Retrieve</div>
+                                                                    <div class="block" onclick="cudOperation('Update')">Update</div>
+                                                                    <div class="block" onclick="cudOperation('Delete')">Delete</div>
+                                                                </div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('.index','.operations')">Back
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item retrieve">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Retrieve <span class="table"></span> Samples</h4>
+
+                                                            <div class="inner">
+                                                                <div class="tables">
+                                                                    <div class="block" onclick="simpleFind('find')">Basic Find</div>
+                                                                    <div class="block" onclick="simpleFind('findFirst')">Find First</div>
+                                                                    <div class="block" onclick="simpleFind('findLast')">Find Last</div>
+                                                                    <div class="block" onclick="complexFind('findSort')">Find with Sort</div>
+                                                                    <div class="block" onclick="complexFind('findRel')">Find with Relations</div>
+                                                                </div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('.operations','.retrieve')">Back
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item info" id="info">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Success</h4>
+
+                                                            <div class="inner" style="padding:10px 0">
+                                                                <div class="textarea">
+                                                                    Record has been <span id="action"></span>.<br/>
+                                                                </div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#cudOperation','#info')">Back
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item sendMail" id="sendByMail">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Send Code by Email</h4>
+
+                                                            <div class="inner" style="padding:10px 10px">
+                                                                <label for="email">Email address:</label>
+                                                                <input type="text" id="email" />
+                                                                <button style="margin: 5px 0;position: relative;top: -5px;min-width: 100px;"
+                                                                        class="sendCodeByEmail" onclick="sendMail()">Send
+                                                                </button>
+                                                                <div class="center" id="cudSendMail">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#cudOperation','#sendByMail')">Back
+                                                                    </button>
+                                                                </div>
+                                                                <div class="center" id='simpleFindSendMail'>
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#simpleFind','#sendByMail')">Back
+                                                                    </button>
+                                                                </div>
+                                                                <div class="center" id='complexFindSendMail'>
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#complexFind','#sendByMail')">Back
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="cudOperation">
+                                                <div class="wrapper">
+                                                    <div class="container cudOperator">
+                                                        <h4><span class="type"></span><span class="table"></span></h4>
+
+                                                        <div class="inner" style="padding:10px 0">
+                                                            <div class="edWrapper">
+                                                                <div id="editor"></div>
+                                                                <pre class="createPre">Backendless.initApp( "APP-ID", "SECRET-KEY", "v1" );
+var My<span class='table'></span> = new <span class='table'></span>("sampleObj");
+Backendless.Persistence.of(<span class='table'></span>).save(My<span class='table'></span>);
+                                                                </pre>
+                                                                <pre class="updatePre">Backendless.initApp( "APP-ID", "SECRET-KEY", "v1" );
+    var storage = Backendless.Persistence.of( <span class='table'></span> );
+    var My<span class='table'></span> = new <span class='table'></span>({updated: new Date(),created: new Date(),objectId: "sample_objectId",ownerId: "sample_ownerId"}));
+    storage.save(My<span class='table'></span>);
+    saved<span class='table'></span>["sampleProperty"] = "sample_value,
+    storage.save(My<span class='table'></span>);</pre>
+                                                                <pre class="deletePre">Backendless.initApp( "APP-ID", "SECRET-KEY", "v1" );
+    var storage = Backendless.Persistence.of( <span class='table'></span> );
+    var My<span class='table'></span>= new <span class='table'></span>({updated: new Date(),created: new Date(),objectId: "sample_objectId",ownerId: "sample_ownerId"
+}));
+storage.save(My<span class='table'></span>);
+storage.remove(My<span class='table'></span>);</pre>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button onclick="runCode()">Run Code</button>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button onclick="showHide('#sendByMail','#cudOperation')">Send Code by Email</button>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button class="back" style="margin:10px 50px" onclick="showHide('.operations','#cudOperation')">Back</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="simpleFind">
+                                                <div class="wrapper">
+                                                    <div class="container simpleFind">
+                                                        <h4>Retrieve <span class="table"></span>objects</h4>
+
+                                                        <div class="inner" style="padding:10px 0">
+                                                            <div class="edWrapper">
+                                                                <div id="editor2"></div>
+                                                                <pre>Backendless.initApp( "APP-ID", "SECRET-KEY", "v1" );
+Backendless.Persistence.of(<span class="table"></span>).<span class="method"></span>();</pre>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button onclick="runSimpleFindCode()">Run Code</button>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button onclick="showHide('#sendByMail','#simpleFind')">Send Code by Email</button>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button class="back" style="margin:10px 50px" onclick="showHide('.retrieve','#simpleFind')">Back</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="complexFind">
+                                                <div class="wrapper">
+                                                    <div class="container complexFind">
+                                                        <h4>Retrieve objects</h4>
+
+                                                        <div class="inner" style="padding:10px 0">
+                                                            <div class="edWrapper">
+                                                                <div id="editor3"></div>
+                                                                <pre>Backendless.initApp( "APP-ID", "SECRET-KEY", "v1" );
+var dataQuery = {
+    options: {sortBy: checkedProperties},
+    relations: checkedRelations
+}
+Backendless.Persistence.of(<span class="table"></span>).find(query);</pre>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button onclick="runComplexFindCode()">Run Code</button>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button onclick="showHide('#sendByMail','#complexFind')">Send Code by Email</button>
+                                                            </div>
+                                                            <div class="center">
+                                                                <button class="back" style="margin:10px 50px" onclick="showHide('#complexFindCheck','#complexFind')">Back</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="complexFindCheck">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Check fields</h4>
+
+                                                            <div class="inner">
+                                                                <div class="attrs"></div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('.retrieve','#complexFindCheck')">Back
+                                                                    </button>
+                                                                    <button
+                                                                            onclick="showExampleSort()">Find
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="attrContainer">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Attributes</h4>
+
+                                                            <div class="inner">
+                                                                <div class="attrs">
+                                                                    <div class="simpleFindHTML"></div>
+                                                                    <div class="center">
+                                                                        <button class="back" style="margin:10px 50px"
+                                                                                onclick="showHide('#simpleFind','#attrContainer')">Back
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="attrContainerSort">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Attributes</h4>
+
+                                                            <div class="inner">
+                                                                <div class="attrs"></div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#complexFind','#attrContainerSort')">Back
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="attrContainerRel">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Attributes</h4>
+
+                                                            <div class="inner">
+                                                                <div class="attrs">
+                                                                    <div class="attrsCont"></div>
+                                                                    <div class="center">
+                                                                        <button class="back" style="margin:10px 50px"
+                                                                                onclick="showHide('#complexFind','#attrContainerRel')">Back
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="uniqueAttrContainer">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Values</h4>
+
+                                                            <div class="inner">
+                                                                <div class="attrs"></div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#attrContainer','#uniqueAttrContainer')">Back
+                                                                    </button>
+                                                                </div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#simpleFind','#uniqueAttrContainer')">Back
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item" id="sortAttrContainer">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="container">
+                                                            <h4>Values</h4>
+
+                                                            <div class="inner">
+                                                                <div class="attrs"></div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#attrContainerSort','#sortAttrContainer')">Back
+                                                                    </button>
+                                                                </div>
+                                                                <div class="center">
+                                                                    <button class="back" style="margin:10px 50px"
+                                                                            onclick="showHide('#attrContainerRel','#sortAttrContainer')">Back
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <script src="js/ace.js" type="text/javascript" charset="utf-8"></script>
+                                    <script type="text/javascript" src="js/classes.js"></script>
+                                    <script type="text/javascript" src="js/data-example.js"></script>
+                                    <script type="text/javascript" src="js/factory.js"></script>
+                                </body>
+                            </html>
